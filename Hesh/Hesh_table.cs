@@ -26,7 +26,7 @@ namespace Hesh
 
         public void AddItem(string Item)
         {
-            int SumItem = Hesh_Fun(Item);            
+            int SumItem = Hesh_Fun(Item); //поиск хеш функции           
             if(Count*2 < Table.Length)
             {
                 if (Table[SumItem] == null)
@@ -48,7 +48,7 @@ namespace Hesh
             } // развилка если закончится массив
             else
             {
-                Array.Resize(ref Table, Table.Length*2);
+                Array.Resize(ref Table, Table.Length*2);//увелеичение массива
                 if (Table[SumItem] == null)
                 {
                     Table[SumItem] = Item;
@@ -67,7 +67,7 @@ namespace Hesh
                 }
             }
         }
-        public int Hesh_Fun(string Item)
+        public int Hesh_Fun(string Item) //хещ функция
         {
             int Hash = 0;
             foreach (int i in Item)
@@ -76,7 +76,7 @@ namespace Hesh
             }
              return Hash % V;
         }
-        public int Hesh_Fun(string Item, int Index)
+        public int Hesh_Fun(string Item, int Index)//хещ функция
         {
             int Hash = 0;
             foreach (int i in Item)
@@ -86,7 +86,7 @@ namespace Hesh
             Hash = ((Hash + Index) % V) + 1;
             return Hash;
         }
-        public bool Search(string Item)
+        public bool Search(string Item)//поиск
         {
             if (Table[Hesh_Fun(Item)] == Item)
             {
@@ -107,7 +107,7 @@ namespace Hesh
                 return false;
             }
         }
-        public string Out()
+        public string Out()//вывод
         {
             string Str = "";
             for(int i = 0; i < Table.Length; i++)
